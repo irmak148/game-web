@@ -1,0 +1,17 @@
+{
+  "name": "realtime-game",
+  "version": "1.0.0",
+  "description": "Realtime Multiplayer Web Game",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+} 

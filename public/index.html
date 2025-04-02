@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Oyun</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div id="login-screen" class="screen">
+            <h1>Online Oyun</h1>
+            <input type="text" id="playerName" placeholder="Kullanıcı Adı">
+            <select id="gameMode">
+                <option value="survival">Hayatta Kalma Modu</option>
+                <option value="collection">Toplama Modu</option>
+            </select>
+            <button id="startButton">Oyuna Başla</button>
+        </div>
+        
+        <div id="game-screen" class="screen hidden">
+            <canvas id="gameCanvas"></canvas>
+            <div class="players-list">
+                <h3>Oyuncular</h3>
+                <ul id="playersList"></ul>
+            </div>
+            <div id="leaderboard"></div>
+            <div class="score">Skor: <span id="score">0</span></div>
+            <div class="health">Can: <span id="health">100</span></div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="game.js"></script>
+</body>
+</html> 
