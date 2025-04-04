@@ -82,12 +82,15 @@ function Navbar() {
         <div className="flex items-center space-x-4">
           {currentUser ? (
             <>
-              <span className="text-gray-300">
+              <Link
+                to="/profile"
+                className="text-gray-300 hover:text-white"
+              >
                 {currentUser.email}
-              </span>
+              </Link>
               <button
                 onClick={handleLogout}
-                className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded"
+                className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded transition duration-200"
               >
                 {t('logout')}
               </button>
@@ -96,13 +99,13 @@ function Navbar() {
             <>
               <Link
                 to="/login"
-                className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded"
+                className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded transition duration-200"
               >
                 {t('signIn')}
               </Link>
               <Link
-                to="/register"
-                className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded"
+                to="/signup"
+                className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded transition duration-200"
               >
                 {t('signUp')}
               </Link>
