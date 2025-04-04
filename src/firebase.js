@@ -1,7 +1,7 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth, connectAuthEmulator } from 'firebase/auth';
-import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
+import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getAuth } from "firebase/auth";
+import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAn2M-StOa-X950NpGdNXqjJsXR-Q5_Y7k",
@@ -14,14 +14,12 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
+const analytics = process.env.NODE_ENV === 'production' ? getAnalytics(app) : null;
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Only connect to emulators in development
 if (process.env.NODE_ENV === 'development') {
-  connectAuthEmulator(auth, 'http://localhost:9099');
   connectFirestoreEmulator(db, 'localhost', 8080);
 }
 
-// Only initialize analytics in production
-export const analytics = process.env.NODE_ENV === 'production' ? getAnalytics(app) : null;
+export { app, analytics, auth, db };
