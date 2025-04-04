@@ -1,0 +1,17 @@
+{
+  "game": {
+    "score": "Score",
+    "paused": "Paused",
+    "gameOver": "Game Over",
+    "restart": "Restart",
+    "resume": "Resume",
+    "exit": "Exit",
+    "fullscreen": "Fullscreen",
+    "pause": "Pause"
+  },
+  "signIn": "Sign In",
+  "signUp": "Sign Up",
+  "logout": "Logout",
+  "portal": "Game Portal",
+  "games": "Games"
+}

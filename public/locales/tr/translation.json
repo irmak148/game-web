@@ -1,0 +1,17 @@
+{
+  "game": {
+    "score": "Skor",
+    "paused": "DURAKLATILDI",
+    "gameOver": "OYUN BİTTİ",
+    "restart": "TEKRAR OYNA",
+    "resume": "DEVAM ET",
+    "exit": "ÇIKIŞ",
+    "fullscreen": "TAM EKRAN",
+    "pause": "DURAKLAT"
+  },
+  "signIn": "Giriş Yap",
+  "signUp": "Kayıt Ol",
+  "logout": "Çıkış",
+  "portal": "Oyun Portalı",
+  "games": "Oyunlar"
+}
