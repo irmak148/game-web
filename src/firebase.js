@@ -4,17 +4,17 @@ import { getAuth } from "firebase/auth";
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAn2M-StOa-X950NpGdNXqjJsXR-Q5_Y7k",
-  authDomain: "game-web-137d7.firebaseapp.com",
-  projectId: "game-web-137d7",
-  storageBucket: "game-web-137d7.firebasestorage.app",
-  messagingSenderId: "149439902371",
-  appId: "1:149439902371:web:c81c52f9535e951cee4516",
-  measurementId: "G-Z7MF2C7K9R"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = process.env.NODE_ENV === 'production' ? getAnalytics(app) : null;
+const analytics = getAnalytics(app);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
