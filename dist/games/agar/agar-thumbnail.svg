@@ -1,0 +1,25 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#1F2937"/>
+  
+  <!-- Background circles -->
+  <circle cx="100" cy="200" r="20" fill="#2ecc71" opacity="0.4"/>
+  <circle cx="200" cy="300" r="15" fill="#3498db" opacity="0.4"/>
+  <circle cx="400" cy="150" r="10" fill="#f39c12" opacity="0.4"/>
+  <circle cx="500" cy="250" r="8" fill="#9b59b6" opacity="0.4"/>
+  <circle cx="150" cy="100" r="12" fill="#1abc9c" opacity="0.4"/>
+  <circle cx="450" cy="350" r="18" fill="#e74c3c" opacity="0.4"/>
+  
+  <!-- Player Circle -->
+  <circle cx="300" cy="200" r="80" fill="#3498db"/>
+  <circle cx="300" cy="200" r="70" fill="#2980b9"/>
+  
+  <!-- Smaller food dots -->
+  <circle cx="200" cy="150" r="8" fill="#2ecc71"/>
+  <circle cx="420" cy="220" r="6" fill="#f1c40f"/>
+  <circle cx="250" cy="320" r="7" fill="#e74c3c"/>
+  <circle cx="380" cy="100" r="5" fill="#9b59b6"/>
+  <circle cx="150" cy="250" r="6" fill="#1abc9c"/>
+  
+  <!-- Game Title -->
+  <text x="300" y="200" font-family="Arial" font-size="30" font-weight="bold" text-anchor="middle" fill="white">Agar.io</text>
+</svg> 

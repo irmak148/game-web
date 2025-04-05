@@ -4,8 +4,9 @@
   functions = "netlify/functions"
 
 [dev]
-  command = "npm start"
-  port = 3000
+  command = "npm run dev"
+  port = 5173
+  targetPort = 8080
 
 [[redirects]]
   from = "/api/*"
@@ -21,3 +22,10 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[functions]
+  external_node_modules = ["express"]
+  node_bundler = "esbuild"
+
+[build.environment]
+  NODE_VERSION = "18.x"

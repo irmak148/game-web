@@ -1,0 +1,40 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#1F2937"/>
+  
+  <!-- Tetris Board -->
+  <rect x="200" y="50" width="200" height="300" fill="#0f172a" stroke="#374151" stroke-width="2"/>
+  
+  <!-- Tetris Pieces -->
+  <!-- I Piece (Cyan) -->
+  <rect x="220" y="70" width="30" height="30" fill="#06b6d4"/>
+  <rect x="250" y="70" width="30" height="30" fill="#06b6d4"/>
+  <rect x="280" y="70" width="30" height="30" fill="#06b6d4"/>
+  <rect x="310" y="70" width="30" height="30" fill="#06b6d4"/>
+  
+  <!-- O Piece (Yellow) -->
+  <rect x="250" y="120" width="30" height="30" fill="#fbbf24"/>
+  <rect x="280" y="120" width="30" height="30" fill="#fbbf24"/>
+  <rect x="250" y="150" width="30" height="30" fill="#fbbf24"/>
+  <rect x="280" y="150" width="30" height="30" fill="#fbbf24"/>
+  
+  <!-- T Piece (Purple) -->
+  <rect x="250" y="200" width="30" height="30" fill="#8b5cf6"/>
+  <rect x="280" y="200" width="30" height="30" fill="#8b5cf6"/>
+  <rect x="310" y="200" width="30" height="30" fill="#8b5cf6"/>
+  <rect x="280" y="230" width="30" height="30" fill="#8b5cf6"/>
+  
+  <!-- L Piece (Orange) -->
+  <rect x="220" y="280" width="30" height="30" fill="#f97316"/>
+  <rect x="250" y="280" width="30" height="30" fill="#f97316"/>
+  <rect x="280" y="280" width="30" height="30" fill="#f97316"/>
+  <rect x="280" y="310" width="30" height="30" fill="#f97316"/>
+  
+  <!-- Z Piece (Red) to the side -->
+  <rect x="350" y="260" width="30" height="30" fill="#ef4444"/>
+  <rect x="380" y="260" width="30" height="30" fill="#ef4444"/>
+  <rect x="320" y="290" width="30" height="30" fill="#ef4444"/>
+  <rect x="350" y="290" width="30" height="30" fill="#ef4444"/>
+  
+  <!-- Game Title -->
+  <text x="300" y="380" font-family="Arial" font-size="30" font-weight="bold" text-anchor="middle" fill="white">Tetris</text>
+</svg> 

@@ -1,0 +1,46 @@
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="400" fill="#1F2937"/>
+  
+  <!-- 2048 Grid Background -->
+  <rect x="150" y="50" width="300" height="300" rx="10" fill="#0f172a"/>
+  
+  <!-- Tiles -->
+  <rect x="160" y="60" width="65" height="65" rx="6" fill="#374151"/>
+  <rect x="235" y="60" width="65" height="65" rx="6" fill="#4b5563"/>
+  <rect x="310" y="60" width="65" height="65" rx="6" fill="#6366f1"/>
+  <rect x="385" y="60" width="65" height="65" rx="6" fill="#4f46e5"/>
+  
+  <rect x="160" y="135" width="65" height="65" rx="6" fill="#4b5563"/>
+  <rect x="235" y="135" width="65" height="65" rx="6" fill="#6366f1"/>
+  <rect x="310" y="135" width="65" height="65" rx="6" fill="#4338ca"/>
+  <rect x="385" y="135" width="65" height="65" rx="6" fill="#0f172a"/>
+  
+  <rect x="160" y="210" width="65" height="65" rx="6" fill="#0f172a"/>
+  <rect x="235" y="210" width="65" height="65" rx="6" fill="#374151"/>
+  <rect x="310" y="210" width="65" height="65" rx="6" fill="#4b5563"/>
+  <rect x="385" y="210" width="65" height="65" rx="6" fill="#0f172a"/>
+  
+  <rect x="160" y="285" width="65" height="65" rx="6" fill="#0f172a"/>
+  <rect x="235" y="285" width="65" height="65" rx="6" fill="#0f172a"/>
+  <rect x="310" y="285" width="65" height="65" rx="6" fill="#6366f1"/>
+  <rect x="385" y="285" width="65" height="65" rx="6" fill="#4f46e5"/>
+  
+  <!-- Numbers -->
+  <text x="192" y="100" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="white">2</text>
+  <text x="267" y="100" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="white">4</text>
+  <text x="342" y="100" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="white">8</text>
+  <text x="417" y="100" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="white">16</text>
+  
+  <text x="192" y="175" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="white">4</text>
+  <text x="267" y="175" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="white">8</text>
+  <text x="342" y="175" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="white">32</text>
+  
+  <text x="267" y="250" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="white">2</text>
+  <text x="342" y="250" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="white">4</text>
+  
+  <text x="342" y="325" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="white">8</text>
+  <text x="417" y="325" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="white">16</text>
+  
+  <!-- Game Title -->
+  <text x="300" y="380" font-family="Arial" font-size="30" font-weight="bold" text-anchor="middle" fill="white">2048</text>
+</svg> 

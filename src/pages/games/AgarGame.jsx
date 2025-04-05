@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import GameLayout from '../../components/GameLayout';
+import Navbar from '../../components/Navbar';
 
 function AgarGame() {
   const canvasRef = useRef(null);
@@ -8,6 +9,7 @@ function AgarGame() {
   const [gameOver, setGameOver] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Game state
   const gameState = useRef({
@@ -25,27 +27,43 @@ function AgarGame() {
     playerDirection: { dx: 0, dy: 0 }
   });
 
+  // Handle route change
   useEffect(() => {
+    if (location.pathname === '/games/agar') {
+      console.log('AgarGame mounted at', location.pathname);
+      setGameOver(false);
+      setScore(0);
+      // Small delay to ensure canvas is properly mounted
+      setTimeout(() => {
+        if (canvasRef.current) {
+          const canvas = canvasRef.current;
+          const ctx = canvas.getContext('2d');
+          gameState.current.canvas = canvas;
+          gameState.current.ctx = ctx;
+          resizeCanvas();
+          initGame();
+          startGameLoop();
+        }
+      }, 100);
+    }
+    
+    return () => {
+      stopGameLoop();
+    };
+  }, [location.pathname]);
+
+  function resizeCanvas() {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    
-    gameState.current.canvas = canvas;
-    gameState.current.ctx = ctx;
-    
-    function resizeCanvas() {
+    if (canvas) {
       canvas.width = canvas.clientWidth;
       canvas.height = canvas.clientHeight;
     }
+  }
 
+  useEffect(() => {
     window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    initGame();
-    startGameLoop();
-
     return () => {
       window.removeEventListener('resize', resizeCanvas);
-      stopGameLoop();
     };
   }, []);
 
@@ -221,6 +239,8 @@ function AgarGame() {
     const ctx = gameState.current.ctx;
     const camera = gameState.current.camera;
 
+    if (!canvas || !ctx) return;
+
     // Clear canvas
     ctx.fillStyle = '#000000';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -360,11 +380,13 @@ function AgarGame() {
       radius: 20,
       speed: 2
     };
-
-    gameState.current.camera = {
-      x: gameState.current.player.x - gameState.current.canvas.width / 2,
-      y: gameState.current.player.y - gameState.current.canvas.height / 2
-    };
+    
+    if (gameState.current.canvas) {
+      gameState.current.camera = {
+        x: gameState.current.player.x - gameState.current.canvas.width / 2,
+        y: gameState.current.player.y - gameState.current.canvas.height / 2
+      };
+    }
 
     gameState.current.playerDirection = { dx: 0, dy: 0 };
     gameState.current.npcs = createNPCs(20);
@@ -372,40 +394,48 @@ function AgarGame() {
   }
 
   return (
-    <GameLayout
-      isPaused={isPaused}
-      onPause={handlePause}
-      score={score}
-    >
-      <canvas
-        ref={canvasRef}
-        className="w-full h-full"
-        style={{ cursor: 'crosshair' }}
-      />
-      {(isPaused || gameOver) && (
-        <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
-          <div className="text-center">
-            <h2 className="text-white text-4xl font-bold mb-8">
-              {gameOver ? "Game Over" : "Paused"}
-            </h2>
-            <div className="space-x-4">
-              <button
-                onClick={gameOver ? handleRestart : () => setIsPaused(false)}
-                className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
-              >
-                {gameOver ? "Restart" : "Resume"}
-              </button>
-              <button
-                onClick={() => navigate('/')}
-                className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
-              >
-                Exit
-              </button>
+    <div className="flex flex-col h-screen w-full">
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <Navbar />
+      </div>
+      <div className="flex-grow pt-14">
+        <GameLayout
+          isPaused={isPaused}
+          onPause={handlePause}
+          score={score}
+        >
+          <canvas
+            ref={canvasRef}
+            className="w-full h-full"
+            style={{ cursor: 'crosshair' }}
+          />
+          {(isPaused || gameOver) && (
+            <div className="absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+              <div className="text-center p-8 rounded-lg border-4 border-white shadow-xl">
+                <h2 className="text-white text-6xl font-bold mb-4">
+                  {gameOver ? "Game Over" : "Paused"}
+                </h2>
+                {gameOver && <p className="text-white text-2xl mb-8">Your score: {score}</p>}
+                <div className="space-x-4">
+                  <button
+                    onClick={gameOver ? handleRestart : () => setIsPaused(false)}
+                    className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+                  >
+                    {gameOver ? "Play Again" : "Resume"}
+                  </button>
+                  <button
+                    onClick={() => navigate('/')}
+                    className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors"
+                  >
+                    Exit
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
-    </GameLayout>
+          )}
+        </GameLayout>
+      </div>
+    </div>
   );
 }
 
